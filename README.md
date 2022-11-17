@@ -47,7 +47,7 @@ bash /bin/_correct_manuals.sh YOUR.DB.NAME.fa
 This can take a while for large databases.
 
 
-## Manual addition of sequences by patching taxonomy and inclusion
+### Manual addition of sequences by patching taxonomy and inclusion
 * adding taxonomy and appending to DB
 
 1. Place one or more ```.fasta``` in the format as in the examples into the folder ```additions```
@@ -65,4 +65,4 @@ bash /bin/_add_manuals.sh YOUR.DB.NAME.fa
 This can take a while for large databases.
 
 
-## Subsetting: Input DB, list -> Output DB
+### Subsetting: Input DB, list -> Output DB
