@@ -1,0 +1,4 @@
+# Location of Binaries
+
+## SeqFilter: https://github.com/BioInf-Wuerzburg/SeqFilter
+sf=/PATH/TO/SeqFilter
