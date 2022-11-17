@@ -29,8 +29,7 @@ These are
 1. Place a ```.txt``` in the format as in the examples into the folder ```corrections```
 Format is 
 ```NCBI-Accession;Wrong_ScientificName;Corrected_ScientificName;Your_Name```
-
-Separate files can be made, all ```.txt``` files in that folder will be used for corrections.
+Multiple separate files can be made, all ```.txt``` files in that folder will be used for corrections.
 
 2. Then call the function on your database 
 ```
