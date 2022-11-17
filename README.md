@@ -38,6 +38,8 @@ NCBI-Accession;Wrong_ScientificName;Corrected_ScientificName;Your_Name
 ```
 bash /bin/_correct_manuals.sh YOUR.DB.NAME.fa
 ```
+This can take a while for large databases.
+
 
 ## Manual addition Input DB, fasta -> Output DB
 * adding taxonomy and appending to DB
