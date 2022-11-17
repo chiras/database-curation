@@ -12,6 +12,10 @@ And particuarly syntax information: https://molbiodiv.github.io/bcdatabaser/outp
 
 ## Dependencies
 
+Software dependencies are declared in ```bin/externals.txt```
+These are 
+* Seqfilter https://github.com/BioInf-Wuerzburg/SeqFilter
+
 ## Functions:
 
 ### Automatized curation: Input DB -> Output DB
