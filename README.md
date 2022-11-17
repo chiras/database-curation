@@ -62,7 +62,7 @@ ACGT
 ```
 bash /bin/_add_manuals.sh YOUR.DB.NAME.fa
 ```
-This can take a while for large databases.
+This can take a while for large number of sequences.
 
 
 ### Subsetting: Input DB, list -> Output DB
