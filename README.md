@@ -33,8 +33,8 @@ This was tested under
 * taxonomy corrections
 * sequence removal
 
-1. Place a ```.txt``` in the format as in the examples into the folder ```corrections```
-Format is 
+1. Place a ```.txt``` in the format as in the examples into the folder ```corrections```. 
+The format is 
 ```
 NCBI-Accession;Wrong_ScientificName;Corrected_ScientificName;Your_Name
 ```
@@ -50,8 +50,8 @@ This can take a while for large databases.
 ### Manual addition of sequences by patching taxonomy and inclusion
 * adding taxonomy and appending to DB
 
-1. Place one or more ```.fasta``` in the format as in the examples into the folder ```additions```
-Format is 
+1. Place one or more ```.fasta``` in the format as in the examples into the folder ```additions```. 
+The format is 
 ```
 >Scientific_name
 ACGT
