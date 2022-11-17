@@ -26,6 +26,15 @@ These are
 * taxonomy corrections
 * sequence removal
 
+Place a ```.txt``` in the format as in the examples into the folder ```corrections```
+Format is 
+```NCBI-Accession;Wrong_ScientificName;Corrected_ScientificName;Your_Name```
+
+Separate files can be made, all ```.txt``` files in that folder will be used for corrections.
+
+Then call the function on your database 
+```bash /bin/_correct_manuals.sh YOUR.DB.NAME.fa```
+
 ## Manual addition Input DB, fasta -> Output DB
 * adding taxonomy and appending to DB
 
