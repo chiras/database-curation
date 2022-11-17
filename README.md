@@ -8,6 +8,7 @@ These functions are intented for usage with databases that have a taxonomy store
 Such databases can be created using BCdatabase: https://github.com/molbiodiv/bcdatabaser
 
 Dokumentation: https://molbiodiv.github.io/bcdatabaser/
+
 And particuarly syntax information: https://molbiodiv.github.io/bcdatabaser/output.html
 
 ## Dependencies
@@ -31,7 +32,7 @@ Format is
 ```
 NCBI-Accession;Wrong_ScientificName;Corrected_ScientificName;Your_Name
 ```
-Multiple separate files can be made, all ```.txt``` files in that folder will be used for corrections.
+ Multiple separate files can be made, all ```.txt``` files in that folder will be used for corrections.
 
 2. Then call the function on your database 
 ```
