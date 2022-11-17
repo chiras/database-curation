@@ -17,6 +17,11 @@ Software dependencies are declared in ```bin/externals.txt```
 These are 
 * Seqfilter https://github.com/BioInf-Wuerzburg/SeqFilter
 
+## Tested 
+This was tested under 
+* Mac OSX 11.0.1
+* Ubuntu 20.04
+
 ## Functions:
 
 ### Automatized curation: Input DB -> Output DB
