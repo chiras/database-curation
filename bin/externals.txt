@@ -2,3 +2,6 @@
 
 ## SeqFilter: https://github.com/BioInf-Wuerzburg/SeqFilter
 sf=/PATH/TO/SeqFilter
+
+## Eutils https://www.ncbi.nlm.nih.gov/books/NBK179288/
+export PATH=${PATH}:${HOME}/edirect
