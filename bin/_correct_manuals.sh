@@ -56,5 +56,7 @@ for corfile in $(ls $corfolder/*.txt); do
 done
 
 $sf --ids-pattern $db.cor.removed_ids.txt --ids-exclude -o $db.mc.fa $db.cor.fa
-rm $db.cor.fa
-rm $db.cor.fa.bak
+rm -f $db.cor.fa
+rm -f $db.cor.fa.bak
+
+echo "Patching done. Your corrected database is called: $db.mc.fa"
