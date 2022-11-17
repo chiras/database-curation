@@ -15,7 +15,8 @@ And particuarly syntax information: https://molbiodiv.github.io/bcdatabaser/outp
 
 Software dependencies are declared in ```bin/externals.txt```
 These are 
-* Seqfilter https://github.com/BioInf-Wuerzburg/SeqFilter
+* Seqfilter: https://github.com/BioInf-Wuerzburg/SeqFilter
+* NCBI eUtils Command line Tools: https://www.ncbi.nlm.nih.gov/books/NBK179288/
 
 ## Tested 
 This was tested under 
@@ -24,11 +25,11 @@ This was tested under
 
 ## Functions:
 
-### Automatized curation: Input DB -> Output DB
+### Automatized curation
 * fungal removal
 * iterative intra-spec outliers
 
-### Manual list curation: Input DB, csv list -> Output DB
+### Manual list curation by identified wrong NCBI taxonomies
 * taxonomy corrections
 * sequence removal
 
@@ -46,7 +47,22 @@ bash /bin/_correct_manuals.sh YOUR.DB.NAME.fa
 This can take a while for large databases.
 
 
-## Manual addition Input DB, fasta -> Output DB
+## Manual addition of sequences by patching taxonomy and inclusion
 * adding taxonomy and appending to DB
+
+1. Place one or more ```.fasta``` in the format as in the examples into the folder ```additions```
+Format is 
+```
+>Scientific_name
+ACGT
+```
+ Multiple separate files can be made, all ```.fasta``` files in that folder will be used for additions.
+
+2. Then call the function on your database 
+```
+bash /bin/_add_manuals.sh YOUR.DB.NAME.fa
+```
+This can take a while for large databases.
+
 
 ## Subsetting: Input DB, list -> Output DB
