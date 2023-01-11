@@ -1,0 +1,3 @@
+#source	state	reads	bases	max	min	N50	N90
+its2.global.2022-03-05.nf.its2.comp.tax.fa	RAW	318907	198386058	1996	103	649	543
+its2.global.2022-03-05.nf.its2.comp.tax.fa	FIL	318151	197869897	1996	103	649	543

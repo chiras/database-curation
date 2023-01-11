@@ -1,7 +1,22 @@
+# Number of threads to be used
+threads=8
+quiet=1
+
 # Location of Binaries
 
 ## SeqFilter: https://github.com/BioInf-Wuerzburg/SeqFilter
-sf=/PATH/TO/SeqFilter
+sf=/Users/ra39huv/Documents/Arbeit/Projects/Metabarcoding/Bins/SeqFilter/bin/SeqFilter
 
 ## Eutils https://www.ncbi.nlm.nih.gov/books/NBK179288/
-export PATH=${PATH}:${HOME}/edirect
+## install by
+# export PATH=${PATH}:${HOME}/edirect
+## or via docker:
+# docker run ncbi/edirect
+
+esearch="docker run ncbi/edirect"
+
+## VSEARCH
+vsearch=/Users/ra39huv/Documents/Arbeit/Projects/Metabarcoding/Bins/vsearch
+
+# R
+R=/Library/Frameworks/R.framework/Resources/bin/R

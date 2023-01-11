@@ -1,0 +1,19 @@
+Start: 10/01/2023 13:41:23:3N
+----------------------------------------
+
+# Filtering Summary 
+
+Starting sequences:  347700
+Starting number of taxa:  119260
+----------------------------------------
+Filtered Fungi sequences: 347700 - 347557: 143
+Filtered non-ITS2 sequences: 347557 - 318913: 28644
+Filtered incomplete taxonomy: 318913 - 318907: 6
+Filtered Algae sequences: 318907 - 318151: 756
+Filtered by high inter-spc variation: 318151 - 304973: 13178
+----------------------------------------
+Final sequences:  304973
+Final number of taxa:  110867
+
+----------------------------------------
+End: 10/01/2023 15:12:47:3N
