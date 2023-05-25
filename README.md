@@ -69,5 +69,5 @@ This can take a while for large number of sequences.
 ### Subsetting: Input DB, list -> Output DB
 Subsetting your input database into a geographically database
  ```
-SeqFilter --ids_pattern LOCAL.FLORA.fa YOUR.DB.NAME.fa -o LOCAL.FLORA.DB.fa
+SeqFilter --ids_pattern LOCAL.FLORA.csv YOUR.DB.NAME.fa -o LOCAL.FLORA.DB.fa
 ```
