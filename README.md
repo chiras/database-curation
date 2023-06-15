@@ -1,6 +1,7 @@
 # Reference database curation
 
 ## Intro
+This is the repository of the database curation pipline for (meta-)barcoding. The corresponding article is available as preview while being under review: [https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1](https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1)
 
 ## Requirements
 ### Compatible Database
