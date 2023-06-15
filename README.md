@@ -34,12 +34,13 @@ This was tested under
 4) Chlorophyta removal
 5) Identify and remove iterative intra-spec outliers
 
-   (Details in the article above)
+(Details on these filters are provided in the article above)
 
-2. Then call the function on your database
+This function performs the automated curation:
 ```
 bash /bin/_curation.sh YOUR.DB.NAME.fa
 ```
+
 
 ### Manual list curation by identified wrong NCBI taxonomies
 * taxonomy corrections
