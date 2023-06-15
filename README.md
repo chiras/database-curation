@@ -28,8 +28,18 @@ This was tested under
 ## Functions:
 
 ### Automatized curation
-* fungal removal
-* iterative intra-spec outliers
+1) Fungal removal
+2) Non-target (non-ITS2) sequence removal
+3) Removing incomplete taxonomies
+4) Chlorophyta removal
+5) Identify and remove iterative intra-spec outliers
+
+   (Details in the article above)
+
+2. Then call the function on your database
+```
+bash /bin/_curation.sh YOUR.DB.NAME.fa
+```
 
 ### Manual list curation by identified wrong NCBI taxonomies
 * taxonomy corrections
