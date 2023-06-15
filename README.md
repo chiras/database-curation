@@ -18,7 +18,7 @@ Software dependencies are declared in ```bin/externals.txt```
 These are
 * Seqfilter: https://github.com/BioInf-Wuerzburg/SeqFilter
 * NCBI eUtils Command line Tools: https://www.ncbi.nlm.nih.gov/books/NBK179288/
-* VSEARCH 
+* VSEARCH: https://github.com/torognes/vsearch
 
 ## Tested
 This was tested under
