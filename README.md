@@ -1,14 +1,14 @@
 # Reference database curation
 
 ## Intro
-This is the repository of the database curation pipline for (meta-)barcoding. The corresponding article is available as preview while being under review: [https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1](https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1)
+This is the repository of the database curation pipeline for (meta-)barcoding. The corresponding article is available as preview while being under review: [https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1](https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1)
 
 ## Requirements
 ### Compatible Database
 These functions are intented for usage with databases that have a taxonomy stored in a specific format used for classifiers.
 Such databases can be created using BCdatabase: https://github.com/molbiodiv/bcdatabaser
 
-Dokumentation: https://molbiodiv.github.io/bcdatabaser/
+Documentation: https://molbiodiv.github.io/bcdatabaser/
 
 And particuarly syntax information: https://molbiodiv.github.io/bcdatabaser/output.html
 
