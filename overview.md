@@ -12,6 +12,7 @@ description: Taxonomy and status of accession numbers
 <script type="text/javascript">
 $(document).ready( function () {
 	new DataTable('#ovtable');
+	$('#ovtable').show();
 } );
 </script>
 
@@ -20,7 +21,7 @@ $(document).ready( function () {
 
 <div class="table1-start"></div>
 
-<table id="ovtable">
+<table id="ovtable" style="display: none">
 <thead>
 <tr>
 <th> Accession </th><th> Taxonomy </th><th> Status </th>
