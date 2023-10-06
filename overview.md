@@ -20,7 +20,7 @@ $(document).ready( function () {
 
 ## Overview Table
 
-<h3 id="warning">⚠️ A large table is loading in the background, this might take a minute ⚠️ </hr>
+<h3 id="warning">⚠️ A large table is loading in the background, this might take a minute ⚠️ </h3>
 
 <table id="ovtable" style="display: none">
 <thead>
