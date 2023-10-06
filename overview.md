@@ -17,6 +17,17 @@ $(document).ready( function () {
 } );
 </script>
 
+<style>
+.status-present {
+	background-color: lightgreen
+}
+.status-absent {
+	background-color: orange
+}
+.status-modified {
+	background-color: red
+}
+</style>
 
 ## Overview Table
 
