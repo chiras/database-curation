@@ -31,7 +31,7 @@ $(document).ready( function () {
 <tbody>
 {%- for entry in site.data.headers_comparison %}
 <tr>
-<td> {{ entry.Accession }} </td><td> {{ entry.Taxonomy }} </td><td> {{ entry.Status }} </td>
+<td> {{ entry.Accession }} </td><td> {{ entry.Taxonomy }} </td><td class="status-{{ entry.Status }}"> {{ entry.Status }} </td>
 </tr>
 {%- endfor %}
 </tbody>
