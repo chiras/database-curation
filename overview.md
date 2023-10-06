@@ -11,7 +11,7 @@ description: Taxonomy and status of accession numbers
 
 <script type="text/javascript">
 $(document).ready( function () {
-	new DataTable('#ovtable');
+	$('#ovtable').DataTable({searchDelay: 350});
 	$('#ovtable').show();
 	$('#warning').hide();
 } );
