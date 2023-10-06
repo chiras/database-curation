@@ -13,13 +13,14 @@ description: Taxonomy and status of accession numbers
 $(document).ready( function () {
 	new DataTable('#ovtable');
 	$('#ovtable').show();
+	$('#warning').hide();
 } );
 </script>
 
 
 ## Overview Table
 
-<div class="table1-start"></div>
+<h3 id="warning">⚠️ A large table is loading in the background, this might take a minute ⚠️ </hr>
 
 <table id="ovtable" style="display: none">
 <thead>
@@ -36,5 +37,4 @@ $(document).ready( function () {
 </tbody>
 </table>
 
-<div class="table1-end"></div>
 
