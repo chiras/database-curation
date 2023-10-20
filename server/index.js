@@ -14,8 +14,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api', (req, res) => {
+  let start = parseInt(req.query["start"])
+  let len = parseInt(req.query["length"])
   connection.query(
-    'SELECT * FROM its2_accessions LIMIT 10',
+    `SELECT * FROM its2_accessions LIMIT ${len} OFFSET ${start}`,
     (err, rows, fields) => {
 	    //console.log(req)
       res.json({
