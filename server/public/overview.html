@@ -9,7 +9,19 @@
 <script type="text/javascript">
 $(document).ready( function () {
 	$('#ovtable').DataTable({
-
+		serverSide: true,
+		ajax: '/api',
+		columns: [
+                  { data: 'Accession' },
+                  { data: 'Kingdom' },
+                  { data: 'Phylum' },
+                  { data: 'Class' },
+                  { data: 'Order' },
+                  { data: 'Family' },
+                  { data: 'Genus' },
+                  { data: 'Species' },
+                  { data: 'Status' },
+                ],
 	});
 	//$('#ovtable').show();
 	//$('#warning').hide();
@@ -53,7 +65,15 @@ Loader via css as described in https://www.w3schools.com/howto/howto_css_loader.
 <table id="ovtable">
 <thead>
 <tr>
-<th> Accession </th><th> Taxonomy </th><th> Status </th>
+<th> Accession </th>
+<th> Kingdom </th>
+<th> Phylum </th>
+<th> Class </th>
+<th> Order </th>
+<th> Family </th>
+<th> Genus </th>
+<th> Species </th>
+<th> Status </th>
 </tr>
 </thead>
 <tbody>
