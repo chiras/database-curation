@@ -9,6 +9,7 @@ let records_total = -1
 connection.query('SELECT COUNT(*) AS total FROM its2_accessions', (err, rows, fields) => {records_total = rows[0].total})
 
 const columns=["Accession", "Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Status"]
+const onlyLettersOrNumberPattern = /^[A-Za-z0-9_]+$/
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -25,8 +26,13 @@ app.get('/api', (req, res) => {
       ).map(
 	  x => x.join(" ").replace("Order", "`Order`")
       ).join(", ")
+  let search = "";
+  let userSearch = req.query["search"]["value"]
+  if(userSearch && userSearch.match(onlyLettersOrNumberPattern)){
+    search = `WHERE CONCAT_WS(',',${columns.join(",").replace("Order", "`Order`")}) LIKE '%${userSearch}%'`
+  }
   connection.query(
-    `SELECT * FROM its2_accessions ORDER BY ${order_cols} LIMIT ${len} OFFSET ${start}`,
+    `SELECT * FROM its2_accessions ${search} ORDER BY ${order_cols} LIMIT ${len} OFFSET ${start}`,
     (err, rows, fields) => {
 	    //console.log(req)
       res.json({
