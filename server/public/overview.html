@@ -28,7 +28,8 @@ $(document).ready( function () {
                   "createdCell": (td, cellData, rowData, row, col) => {
                     $(td).addClass(`status-${cellData}`)
                   },
-		}]
+		}],
+		order: [[1, 'desc']]
 
 	});
 	//$('#ovtable').show();
