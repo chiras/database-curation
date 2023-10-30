@@ -11,6 +11,19 @@ connection.query('SELECT COUNT(*) AS total FROM its2_accessions', (err, rows, fi
   records_total = rows[0].total
 })
 
+let makeQuery = (res, draw, search, order_cols, len, start, records_total, records_filtered) => connection.query(
+  `SELECT * FROM its2_accessions ${search} ORDER BY ${order_cols} LIMIT ${len} OFFSET ${start}`,
+  (err, rows, fields) => {
+    if(err){console.log(err)}
+    res.json({
+      draw: draw,
+      recordsTotal: records_total,
+      recordsFiltered: records_filtered,
+      data: rows
+    })
+  }
+);
+
 const columns=["Accession", "Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Status"]
 const onlyLettersOrNumberPattern = /^[A-Za-z0-9_]+$/
 
@@ -30,22 +43,21 @@ app.get('/api', (req, res) => {
 	  x => x.join(" ").replace("Order", "`Order`")
       ).join(", ")
   let search = "";
+  let records_filtered = records_total
   let userSearch = req.query["search"]["value"]
+  let draw = parseInt(req.query["draw"])
   if(userSearch && userSearch.match(onlyLettersOrNumberPattern)){
     search = `WHERE CONCAT_WS(',',${columns.join(",").replace("Order", "`Order`")}) LIKE '%${userSearch}%'`
+    records_filtered = connection.query(`SELECT COUNT(*) AS c FROM its2_accessions ${search}`, (err, rows, fields) => {
+      if(err){
+        console.log(err)
+      }
+      records_filtered=rows[0].c
+      makeQuery(res, draw, search, order_cols, len, start, records_total, records_filtered)
+    })
+  } else {
+    makeQuery(res, draw, search, order_cols, len, start, records_total, records_filtered)
   }
-  connection.query(
-    `SELECT * FROM its2_accessions ${search} ORDER BY ${order_cols} LIMIT ${len} OFFSET ${start}`,
-    (err, rows, fields) => {
-      if(err){console.log(err)}
-      res.json({
-        draw: parseInt(req.query["draw"]),
-	recordsTotal: records_total,
-	recordsFiltered: records_total,
-	data: rows
-      })
-    }
-  );
 })
 
 app.use(express.static('public'))
