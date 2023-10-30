@@ -23,6 +23,13 @@ $(document).ready( function () {
                   { data: 'Species' },
                   { data: 'Status' },
                 ],
+		columnDefs: [{
+                  "targets": 8,
+                  "createdCell": (td, cellData, rowData, row, col) => {
+                    $(td).addClass(`status-${cellData}`)
+                  },
+		}]
+
 	});
 	//$('#ovtable').show();
 	//$('#warning').hide();
