@@ -3,10 +3,13 @@ const app = express()
 const port = 3000
 
 const mysql = require('mysql')
-const connection = mysql.createConnection({host: "localhost", user: "example-user", password: "my_cool_secret", database: "dbcuration"})
+const connection = mysql.createConnection({host: "db", user: "example-user", password: "my_cool_secret", database: "dbcuration"})
 
 let records_total = -1
-connection.query('SELECT COUNT(*) AS total FROM its2_accessions', (err, rows, fields) => {records_total = rows[0].total})
+connection.query('SELECT COUNT(*) AS total FROM its2_accessions', (err, rows, fields) => {
+  if(err){console.log(err)}
+  records_total = rows[0].total
+})
 
 const columns=["Accession", "Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Status"]
 const onlyLettersOrNumberPattern = /^[A-Za-z0-9_]+$/
@@ -34,7 +37,7 @@ app.get('/api', (req, res) => {
   connection.query(
     `SELECT * FROM its2_accessions ${search} ORDER BY ${order_cols} LIMIT ${len} OFFSET ${start}`,
     (err, rows, fields) => {
-	    //console.log(req)
+      if(err){console.log(err)}
       res.json({
         draw: parseInt(req.query["draw"]),
 	recordsTotal: records_total,
