@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+        #    entrypoint: "bash"
+        #    stdin_open: true
+        #    tty: true
+  db:
+    image: mariadb
+    environment:
+      - MARIADB_USER=example-user
+      - MARIADB_PASSWORD=my_cool_secret
+      - MARIADB_ROOT_PASSWORD=my-secret-pw 
+      - MARIADB_DATABASE=dbcuration
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    command: --bind-address=0.0.0.0
