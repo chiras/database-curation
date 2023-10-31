@@ -8,8 +8,9 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 <script type="text/javascript">
+var dt;
 $(document).ready( function () {
-	$('#ovtable').DataTable({
+	dt = $('#ovtable').DataTable({
 		serverSide: true,
 		ajax: '/api',
 		columns: [
@@ -34,13 +35,16 @@ $(document).ready( function () {
 		}],
 		order: [[7, 'asc']],
                 search: {search: 'Malus '},
-		pageLength: 50
+		pageLength: 50,
+		lengthMenu: [10, 25, 50, 100, 250]
 
 	});
 	//$('#ovtable').show();
 	//$('#warning').hide();
 	//$('.loader').hide();
 } );
+const getAll = () => window.open("https://www.ncbi.nlm.nih.gov/nuccore/"+dt.data().map(x => x['Accession']).join(','), '_blank').focus()
+const getFiltered = () => window.open("https://www.ncbi.nlm.nih.gov/nuccore/"+dt.data().filter(x => x['Status'] === 'present').map(x => x['Accession']).join(','), '_blank').focus()
 </script>
 
 <style>
@@ -80,10 +84,13 @@ Final curated databases are available at:
 
 <div>
 Filtering options allow to search for specific taxa, per default “Malus ” is set. You can change this to look up species or accessions of your interest. 
-<!-- TODO (FALLS MÖGLICH: Selection options allow access of curated or all sequences at NCBI for further usage once the filter limits the request to an amount of less than 250 sequences. A link that forwards you according to the selection will be generated with the corresponding button ODER WIE AUCH IMMER DAS DANN IMPLEMENTIERT IST). -->
+Selection options allow access of curated or all visible sequences at NCBI for further usage.
+Beware, that only accessions from the visible table page are used, so make sure to filter and set the number of entries per page accordingly (maximum 250). You are forwarded to the selection at NCBI with the corresponding button.
 </div>
 
 <div>
+	<button onclick="getAll()"> Select all </button>
+	<button onclick="getFiltered()"> Select all curated (present) </button>
 <table id="ovtable">
 <thead>
 <tr>
