@@ -24,6 +24,9 @@ $(document).ready( function () {
                   { data: 'Status' },
                 ],
 		columnDefs: [{
+                  "targets": 0,
+                  "render": ( data, type, row, meta ) => `<a href="https://www.ncbi.nlm.nih.gov/nuccore/${data}" target="_blank">${data}</a>`,
+                },{
                   "targets": 8,
                   "createdCell": (td, cellData, rowData, row, col) => {
                     $(td).addClass(`status-${cellData}`)
