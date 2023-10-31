@@ -5,6 +5,12 @@ const port = 3000
 const mysql = require('mysql')
 const connection = mysql.createConnection({host: "db", user: "example-user", password: "my_cool_secret", database: "dbcuration"})
 
+// keepalive derived from https://stackoverflow.com/q/40430964/4969760
+const keepalive = () => {
+  connection.query('SELECT 1 + 1 AS solution', (err) => {if(err){console.log(err)}})
+}
+setInterval(keepalive, 180000) // 30 minutes
+
 let records_total = -1
 connection.query('SELECT COUNT(*) AS total FROM its2_accessions', (err, rows, fields) => {
   if(err){console.log(err)}
