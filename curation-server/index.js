@@ -34,7 +34,7 @@ const columns=["Accession", "Kingdom", "Phylum", "Class", "Order", "Family", "Ge
 const onlyLettersOrNumberPattern = /^[A-Za-z0-9 ]+$/
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.sendFile('public/overview.html', {root: __dirname})
 })
 
 app.get('/api', (req, res) => {
