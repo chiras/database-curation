@@ -25,7 +25,7 @@ let makeQuery = (res, draw, search, order_cols, len, start, records_total, recor
 );
 
 const columns=["Accession", "Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Status"]
-const onlyLettersOrNumberPattern = /^[A-Za-z0-9_]+$/
+const onlyLettersOrNumberPattern = /^[A-Za-z0-9 ]+$/
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

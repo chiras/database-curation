@@ -29,7 +29,9 @@ $(document).ready( function () {
                     $(td).addClass(`status-${cellData}`)
                   },
 		}],
-		order: [[1, 'desc']]
+		order: [[7, 'asc']],
+                search: {search: 'Malus '},
+		pageLength: 50
 
 	});
 	//$('#ovtable').show();
@@ -48,30 +50,37 @@ $(document).ready( function () {
 .status-modified {
 	background-color: red
 }
-
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+table.dataTable tbody td {
+	padding: 2px 4px
 }
 </style>
 
 <body>
 <div>
-	<h2> Overview Table </h2>
+	<h2> NCBI ITS2 vascular plant curation </h2>
+	
 
-<!-- <h3 id="warning">⚠️ A large table is loading in the background, this might take a minute ⚠️ </h3>
-Loader via css as described in https://www.w3schools.com/howto/howto_css_loader.asp
-<div class="loader"></div> -->
+<div>
+Here is a list of the result of the database curation for ITS2 nucleotide sequences for vascular plants. This serves as an overview of which sequences passed our curation filters, and made it into the final databases.
+</div>
 
+<div>
+The code repository is available at https://github.com/chiras/database-curation. 
+The corresponding article is available as preview while being under review: https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1
+Final curated databases are available at: 
+<ul>
+	<li>(i) global database: https://doi.org/10.5281/zenodo.7968519;</li>
+	<li>(ii) crop database: https://doi.org/10.5281/zenodo.7969940, and</li>
+	<li>(iii) country-level databases for the 27 EU countries: https://doi.org/10.5281/zenodo.7970046.</li>
+</ul>
+</div>
+
+<div>
+Filtering options allow to search for specific taxa, per default “Malus ” is set. You can change this to look up species or accessions of your interest. 
+<!-- TODO (FALLS MÖGLICH: Selection options allow access of curated or all sequences at NCBI for further usage once the filter limits the request to an amount of less than 250 sequences. A link that forwards you according to the selection will be generated with the corresponding button ODER WIE AUCH IMMER DAS DANN IMPLEMENTIERT IST). -->
+</div>
+
+<div>
 <table id="ovtable">
 <thead>
 <tr>
@@ -89,6 +98,7 @@ Loader via css as described in https://www.w3schools.com/howto/howto_css_loader.
 <tbody>
 </tbody>
 </table>
+</div>
 
 </div>
 </body>
