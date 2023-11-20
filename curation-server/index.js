@@ -69,8 +69,8 @@ app.get('/api', (req, res) => {
 app.use(express.static('public'))
 
 app.get('/download', function(req, res){
-  const file = `${__dirname}/files/accessions.csv`;
-  res.download(file);
+  const file = `files/accessions.csv`;
+  res.download(file, "accessions.csv", {root: __dirname});
 });
 
 app.listen(port, () => {
