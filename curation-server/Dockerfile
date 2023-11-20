@@ -15,5 +15,6 @@ RUN npm install
 # Bundle app source
 COPY index.js ./
 COPY public ./public
+COPY files ./files
 
 CMD [ "node", "index.js" ]
