@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>DB-Curation Overview</title>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+var dt;
+$(document).ready( function () {
+	dt = $('#ovtable').DataTable({
+		serverSide: true,
+		ajax: '/api',
+		columns: [
+                  { data: 'Accession' },
+                  { data: 'Kingdom' },
+                  { data: 'Phylum' },
+                  { data: 'Class' },
+                  { data: 'Order' },
+                  { data: 'Family' },
+                  { data: 'Genus' },
+                  { data: 'Species' },
+                  { data: 'Status' },
+                ],
+		columnDefs: [{
+                  "targets": 0,
+                  "render": ( data, type, row, meta ) => `<a href="https://www.ncbi.nlm.nih.gov/nuccore/${data}" target="_blank">${data}</a>`,
+                },{
+                  "targets": 8,
+                  "createdCell": (td, cellData, rowData, row, col) => {
+                    $(td).addClass(`status-${cellData}`)
+                  },
+		}],
+		order: [[7, 'asc']],
+                search: {search: 'Malus '},
+		pageLength: 50,
+		lengthMenu: [10, 25, 50, 100, 250]
+
+	});
+	//$('#ovtable').show();
+	//$('#warning').hide();
+	//$('.loader').hide();
+} );
+const getAll = () => window.open("https://www.ncbi.nlm.nih.gov/nuccore/"+dt.data().map(x => x['Accession']).join(','), '_blank').focus()
+const getFiltered = () => window.open("https://www.ncbi.nlm.nih.gov/nuccore/"+dt.data().filter(x => x['Status'] === 'present').map(x => x['Accession']).join(','), '_blank').focus()
+</script>
+
+<style>
+.status-present {
+	background-color: lightgreen
+}
+.status-absent {
+	background-color: orange
+}
+.status-modified {
+	background-color: red
+}
+table.dataTable tbody td {
+	padding: 2px 4px
+}
+</style>
+
+<body>
+<div>
+	<h2> NCBI ITS2 vascular plant curation </h2>
+	
+
+<div>
+Here is a list of the results of the database curation for ITS2 nucleotide sequences for vascular plants. This serves as an overview of which sequences passed our curation filters, and made it into the final databases.
+</div>
+
+<div>
+	The code repository is available at <a href="https://github.com/chiras/database-curation">GitHub</a>.
+	The corresponding article is available at <a href="https://doi.org/10.1038/s41597-024-02962-5">Quaresma et al. 2024</a>.
+Final curated databases are available at: 
+<ul>
+	<li>(i) global database: <a href="https://doi.org/10.5281/zenodo.7968519">doi:10.5281/zenodo.7968519</a></li>
+	<li>(ii) crop database: <a href="https://doi.org/10.5281/zenodo.7969940">doi:10.5281/zenodo.7969940</a></li>
+	<li>(iii) country-level databases for the 27 EU countries: <a href="https://doi.org/10.5281/zenodo.7970046">doi:10.5281/zenodo.7970046</a>.</li>
+</ul>
+
+A full list of accessions that were filtered out is available for download <a href="/download">here</a>.
+</div>
+
+<div>
+Filtering options allow to search for specific taxa, per default “Malus ” is set. You can change this to look up species or accessions of your interest. 
+Selection options allow access of curated or all visible sequences at NCBI for further usage.
+Beware that only accessions from the visible table page are used, so make sure to filter and set the number of entries per page accordingly (maximum 250). You are forwarded to the selection at NCBI with the corresponding button.
+</div>
+
+<div>
+	<button onclick="getAll()"> Select all </button>
+	<button onclick="getFiltered()"> Select all curated (present) </button>
+<table id="ovtable">
+<thead>
+<tr>
+<th> Accession </th>
+<th> Kingdom </th>
+<th> Phylum </th>
+<th> Class </th>
+<th> Order </th>
+<th> Family </th>
+<th> Genus </th>
+<th> Species </th>
+<th> Status </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
+</div>
+</body>
+</html>
