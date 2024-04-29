@@ -1,7 +1,8 @@
 # Reference database curation
 
 ## Intro
-This is the repository of the database curation pipeline for (meta-)barcoding for ITS2 vascular plants. The corresponding article is available as preview while being under review: [https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1](https://www.biorxiv.org/content/10.1101/2023.06.12.544582v1)
+This is the repository of the database curation pipeline for (meta-)barcoding for ITS2 vascular plants. Please cite the corresponding article: 
+[Quaresma, A., Ankenbrand, M.J., Garcia, C.A.Y. et al. Semi-automated sequence curation for reliable reference datasets in ITS2 vascular plant DNA (meta-)barcoding. Sci Data 11, 129 (2024). https://doi.org/10.1038/s41597-024-02962-5](https://doi.org/10.1038/s41597-024-02962-5)
 
 ## Requirements
 ### Compatible Database
